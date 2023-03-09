@@ -1,6 +1,24 @@
 import GoogleMapReact from "google-map-react";
 
 function GoogleMap() {
+  const mapOptions = (maps) => {
+    return {
+      panControl: false,
+      mapTypeControl: false,
+      scrollwheel: false,
+      styles: [
+        {
+          stylers: [
+            { saturation: -100 },
+            { gamma: 0.8 },
+            { lightness: 4 },
+            { visibility: "on" },
+          ],
+        },
+      ],
+    };
+  };
+
   const defaultProps = {
     center: {
       lat: 37.541,
@@ -16,6 +34,7 @@ function GoogleMap() {
         bootstrapURLKeys={{ key: "" }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
+        options={mapOptions}
       />
     </div>
   );

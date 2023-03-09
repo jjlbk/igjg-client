@@ -1,11 +1,11 @@
 import MainTemplate from "components/template/MainTemplate";
 import GoogleMap from "components/atom/Map";
-import Search from "components/atom/Search";
+import SearchBar from "components/molecule/SearchBar";
 
 function Main() {
   return (
     <MainTemplate>
-      <Search />
+      <SearchBar />
       <GoogleMap />
     </MainTemplate>
   );
