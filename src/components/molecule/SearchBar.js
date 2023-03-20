@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Input from "components/atom/Input";
 import { Search } from "react-feather";
+import { useState } from "react";
 
 const SearchBarContainer = styled.div`
   display: flex;
@@ -19,9 +20,12 @@ const SearchIconContainer = styled.div`
 `;
 
 function SearchBar() {
+
+  const [search, setSearch] = useState("");
+
   return (
     <SearchBarContainer>
-      <Input />
+      <Input setSearch={setSearch}/>
       <SearchIconContainer>
         <Search />
       </SearchIconContainer>
