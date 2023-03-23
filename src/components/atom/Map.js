@@ -1,7 +1,7 @@
 import GoogleMapReact from "google-map-react";
 import MapMarker from "components/atom/MapMarker";
 
-import db from "../../firebase";
+import db from "utils/firebase";
 import { collection, getDocs } from "firebase/firestore";
 
 import { useState, useEffect } from "react";
