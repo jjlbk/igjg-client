@@ -7,17 +7,18 @@ const InputTag = styled.input`
   border: 0px;
   border-radius: 12px;
   filter: drop-shadow(0px 4px 4px #cecece);
-  outline:none;
+  outline: none;
   font-size: 14px;
 `;
 
-function Input({setSearch}) {
+function Input({ setSearch }) {
+  const handleChange = (e) => {
+    setSearch((value) => e.target.value);
+  };
 
-  const handleChange=(e)=> {
-    setSearch(value => e.target.value)
-  }
-
-  return <InputTag placeholder="검색어를 입력해주세요" onChange={handleChange}/>;
+  return (
+    <InputTag placeholder="검색어를 입력해주세요" onChange={handleChange} />
+  );
 }
 
 export default Input;

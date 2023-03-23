@@ -8,7 +8,7 @@ function Main() {
     <MainTemplate>
       <SearchBar />
       <GoogleMap />
-      <GNB/>
+      <GNB />
     </MainTemplate>
   );
 }
