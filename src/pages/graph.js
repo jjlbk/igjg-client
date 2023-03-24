@@ -1,5 +1,14 @@
+import GNB from "components/molecule/GNB";
+import HeaderBar from "components/molecule/HeaderBar";
+import KeywordTemplate from "components/template/keywordTemplate";
+
 function KeywordGraph() {
-  return <div>key</div>;
+  return (
+    <KeywordTemplate>
+      <HeaderBar />
+      <GNB />
+    </KeywordTemplate>
+  )
 }
 
 export default KeywordGraph;

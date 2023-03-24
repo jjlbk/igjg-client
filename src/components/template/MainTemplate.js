@@ -8,7 +8,7 @@ const Mobile = styled.div`
 `;
 
 const Container = styled.div`
-  position: relative;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
