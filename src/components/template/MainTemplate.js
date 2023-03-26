@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 const Mobile = styled.div`
-  width : 100%;
-  height : 100%;
-  display : flex;
-  justify-content : center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 const Container = styled.div`
@@ -19,7 +19,7 @@ const Container = styled.div`
 const InputField = styled.div`
   position: absolute;
   width: 368px;
-  height: 36px;
+  height: 40px;
   top: 32px;
   z-index: 10;
 `;
@@ -29,6 +29,13 @@ const GNBField = styled.div`
   bottom: 32px;
   width: 368px;
   height: 48px;
+  z-index: 10;
+`;
+
+const ToggleField = styled.div`
+  position: absolute;
+  bottom: 144px;
+  right: 20px;
   z-index: 10;
 `;
 
@@ -42,6 +49,9 @@ function MainTemplate(props) {
         <GNBField>
           {props.children.filter((child) => child.type.name === "GNB")}
         </GNBField>
+        <ToggleField>
+          {props.children.filter((child) => child.type.name === "Toggle")}
+        </ToggleField>
         {props.children.filter((child) => child.type.name === "GoogleMap")}
       </Container>
     </Mobile>

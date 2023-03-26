@@ -12,6 +12,8 @@ const SearchBarContainer = styled.div`
 `;
 
 const SearchIconContainer = styled.div`
+  display: flex;
+  align-items: center;
   position: absolute;
   right: 16px;
   & :hover {
@@ -20,12 +22,11 @@ const SearchIconContainer = styled.div`
 `;
 
 function SearchBar() {
-
   const [search, setSearch] = useState("");
 
   return (
     <SearchBarContainer>
-      <Input setSearch={setSearch}/>
+      <Input setSearch={setSearch} />
       <SearchIconContainer>
         <Search />
       </SearchIconContainer>

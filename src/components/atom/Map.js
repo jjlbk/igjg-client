@@ -30,19 +30,9 @@ function GoogleMap() {
   const getMarkPosition = async () => {
     try {
       const result = await getDocs(collection(db, "regions"));
-      const locations = result.docs
-        .filter((doc) =>
-          Object.keys(doc.data()).some((key) => key === "placedAt")
-        )
-        .map((doc) => doc.data());
-      setLocations(
-        locations.map((location) => {
-          return {
-            lat: location.placedAt._lat,
-            lng: location.placedAt._long,
-          };
-        })
-      );
+      const locations = result.docs.map((doc) => doc.data());
+      setLocations(() => locations);
+      console.log(locations);
     } catch (err) {
       console.log(err);
       return [];
@@ -54,7 +44,6 @@ function GoogleMap() {
   }, []);
 
   return (
-    // Important! Always set the container height explicitly
     <div style={{ height: "100vh", width: "100%" }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyB4aBOly0NU_jN5q_k_50R5YBjicfem_-0" }} //process.env.REACT_APP_GOOGLE_MAP_KEY
@@ -65,8 +54,8 @@ function GoogleMap() {
         {locations.map((location) => (
           <MapMarker
             key={location.id}
-            lat={location.lat}
-            lng={location.lng}
+            lat={location.placedAt._lat}
+            lng={location.placedAt._long}
             text={location.id}
             tooltip={location.name}
           />
