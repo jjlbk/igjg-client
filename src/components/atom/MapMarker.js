@@ -1,5 +1,5 @@
 import React from "react";
-import { MapPin } from "react-feather";
+import { Circle } from "react-feather";
 import { useState } from "react";
 
 const MapMarker = () => {
@@ -15,7 +15,7 @@ const MapMarker = () => {
 
   return (
     <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
-      <MapPin color="black" size={hover ? 28 : 24} />
+      <Circle fill="black" size={hover ? 20 : 16} />
     </div>
   );
 };
