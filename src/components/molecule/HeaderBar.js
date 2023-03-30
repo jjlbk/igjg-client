@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { X } from "react-feather";
 
 import db from "utils/firebase";
 import { collection, getDocs } from "firebase/firestore";
@@ -24,10 +25,8 @@ const HeaderName = styled.div`
 
 const DropdownBarContainer = styled.div`
   position: absolute;
-  width: 70px;
-  height: 70%;
-  border-radius: 8px;
-  font-size: 10px;
+  width: 250px;
+  height: 80%;
   margin-top: 55px;
   margin-left: 10px;
   outline: none;
@@ -35,15 +34,52 @@ const DropdownBarContainer = styled.div`
 
 const Select = styled.select`
   position: absolute;
-  width: 80px;
+  width: 100px;
   height: 80%;
   border-radius: 4px;
   font-size: 14px;
 `;
 
-function pickGraph() {
-  //dropdown bar에서 선택한 지역에 따라 그래프가 바뀌도록 구현
+const PickRegion = styled.div`
+  display: flex;
+  position: absolute;
+  margin-left: 110px;
+  height: 75%;
+  border-radius: 4px;
+  text-align: left;
+  padding: 0px 20px 0px 10px;
+  font-size: 14px;
+  background-color: #ff9f6c;
+`;
 
+const Button = styled.button`
+  position: absolute;
+  right: 9px;
+  width: 15px;
+  height: 15px;
+  margin-top: 3px;
+  border-radius: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+`;
+
+function DeleteButton(props) {
+  const {icon, onClick} = props;
+  return (
+    <Button onClick={onClick}>
+      {icon} 
+    </Button>
+  );
+}
+
+function SelectRegion() {
+  //= (event) =>
+  //dropdown bar에서 선택한 지역에 따라 그래프가 바뀌도록 구현
+  // this.setState({selectedRegion: event.target.value});
+}
+
+function removeRegion() {
+  //선택한 지역을 지우는 함수
 }
 
 function DropdownBar({locations}) {
@@ -52,6 +88,8 @@ function DropdownBar({locations}) {
         <Select name="country">
           {locations.map((location, idx) => (<option key={idx} value={location.name}>{location.name}</option>))}
         </Select>
+        <PickRegion style={{ color: 'white'}}>수원시<DeleteButton icon={<X size={15} />} onClick={removeRegion}/></PickRegion> 
+        {/* {state.selectedRegion} */}
     </DropdownBarContainer>
   )
 };

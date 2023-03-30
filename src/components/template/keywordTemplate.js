@@ -33,6 +33,21 @@ const GNBField = styled.div`
   z-index: 10;
 `;
 
+const ImageField = styled.div`
+  position: absolute;
+  width: 368px;
+  height: 368px;
+  top: 120px;
+  left: 50px;
+`;
+
+const ChartField = styled.div`
+  position: relative;
+  width: 368px;
+  height: 368px;
+  top: 120px;
+`;
+
 function KeywordTemplate(props) {
     return (
       <Mobile>
@@ -40,6 +55,12 @@ function KeywordTemplate(props) {
           <HeaderBarField>
             {props.children.filter((child) => child.type.name === "HeaderBar")}
           </HeaderBarField>
+          <ImageField>
+            {props.children.filter((child) => child.type.name === "GraphImage")}
+          </ImageField>
+          <chartField>
+            {props.children.filter((child) => child.type.name === "ChartBar")}
+          </chartField>
           <GNBField>
             {props.children.filter((child) => child.type.name === "GNB")}
           </GNBField>
@@ -49,5 +70,3 @@ function KeywordTemplate(props) {
   }
   
   export default KeywordTemplate;
-
-  //https://yozm.wishket.com/magazine/detail/1302/
